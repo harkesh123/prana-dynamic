@@ -1,9 +1,19 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript, DocumentProps } from "next/document";
+import {
+    DocumentHeadTags,
+    DocumentHeadTagsProps,
+    documentGetInitialProps,
+  } from '@mui/material-nextjs/v13-pagesRouter';
 
-export default function Document() {
+  export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps) {
   return (
     <Html lang="en">
-      <Head />
+      <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx2AV0SbkQUOR8lKWTU7iGixZlQ4GVZ4E&loading=async&callback=initMap">
+</script>
+      <Head >
+      <DocumentHeadTags {...props} />
+        </Head>
       <body>
         <Main />
         <NextScript />
@@ -11,3 +21,8 @@ export default function Document() {
     </Html>
   );
 }
+
+MyDocument.getInitialProps = async (ctx:any) => {
+   const finalProps = await documentGetInitialProps(ctx);
+  return finalProps;
+  };
