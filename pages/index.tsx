@@ -47,22 +47,25 @@ export default function Home() {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       ) ? setFormEmailError(false) : setFormEmailError(true)
     formNumber && formNumber.length === 10 ? setFormNumberError(false) : setFormNumberError(true)
-    if(formName !== "" && formEmail.toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    ) && formNumber.length === 10)
-    fetch('/api/email', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({formName,formEmail,formNumber})
-    }).then((res:any) => {
+    if (formName !== "" && formEmail.toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      ) && formNumber.length === 10)
+      fetch('/api/email', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ formName, formEmail, formNumber })
+      }).then((res: any) => {
         if (res.status === 200) {
-            console.log('Response succeeded!')
+          setSnackbar(true)
+          setFormName("")
+          setFormEmail("")
+          setFormNumber()
         }
-    })
+      })
   }
 
 
