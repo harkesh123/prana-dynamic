@@ -13,7 +13,7 @@ import MarkunreadTwoToneIcon from '@mui/icons-material/MarkunreadTwoTone';
 import LocalPhoneTwoToneIcon from '@mui/icons-material/LocalPhoneTwoTone';
 import MapHome from "../components/map";
 import { useState } from "react";
-import { Resend } from 'resend';
+import 'animate.css';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,7 +28,6 @@ const Slides = [
 
 
 
-const resend = new Resend("re_43uWFYPM_DrxPGa2jCXVbk6E3zPxx255x");
 
 export default function Home() {
 

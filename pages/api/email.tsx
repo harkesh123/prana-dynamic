@@ -9,7 +9,7 @@ export default function ( req: NextApiRequest,
       host: "smtp.resend.com",
       auth: {
         user: 'resend',
-        pass: "re_43uWFYPM_DrxPGa2jCXVbk6E3zPxx255x",
+        pass: process.env.NEXT_RESEND_API_KEY,
       },
       secure: true,
     })

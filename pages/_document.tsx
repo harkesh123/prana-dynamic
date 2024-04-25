@@ -9,8 +9,12 @@ import {
   return (
     <Html lang="en">
       <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx2AV0SbkQUOR8lKWTU7iGixZlQ4GVZ4E&loading=async&callback=initMap">
+    src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&loading=async&callback=initMap`}>
 </script>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
       <Head >
       <DocumentHeadTags {...props} />
         </Head>
