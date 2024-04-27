@@ -1,5 +1,5 @@
 .topbar{
-  background-color: #4f93f8 !important;
+  background: linear-gradient(120deg, #edf7f8 50ch, #4f93f8 50ch) !important;
 }
 .navDivider{
   border-width: 1px !important;
